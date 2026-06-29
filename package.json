@@ -1,0 +1,81 @@
+{
+  "name": "cytoscape-biological-flow",
+  "version": "1.0.0",
+  "description": "Hierarchical biological pathway layout for Cytoscape.js — left-to-right signal flow with crossing minimization",
+  "main": "dist/cytoscape-biological-flow.js",
+  "module": "dist/cytoscape-biological-flow.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/cytoscape-biological-flow.mjs",
+      "require": "./dist/cytoscape-biological-flow.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "test",
+    "index.d.ts"
+  ],
+  "author": {
+    "name": "John Muirhead-Gould",
+    "email": "john@magna-services.com"
+  },
+  "contributors": [
+    {
+      "name": "Nodes Bio",
+      "url": "https://nodes.bio"
+    }
+  ],
+  "scripts": {
+    "prepublishOnly": "run-s build",
+    "lint": "eslint src --ext .ts",
+    "check": "tsc --noEmit -p tsconfig.json",
+    "build:types": "tsc -p tsconfig.types.json --noEmit",
+    "build:js": "rollup -c",
+    "build": "run-s build:js build:types",
+    "test": "run-s build test:mocha",
+    "test:mocha": "mocha \"test/**/*.test.mjs\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmg421/cytoscape-biological-flow.git"
+  },
+  "keywords": [
+    "cytoscape",
+    "cytoscape-extension",
+    "layout",
+    "biological",
+    "pathway",
+    "hierarchical",
+    "signal-flow"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmg421/cytoscape-biological-flow/issues"
+  },
+  "homepage": "https://github.com/jmg421/cytoscape-biological-flow",
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-typescript": "^7.27.0",
+    "@rollup/plugin-babel": "^7.0.0",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "chai": "4.2.0",
+    "cytoscape": "^3.2.22",
+    "eslint": "^7.6.0",
+    "mocha": "8.1.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^4.60.4",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "cytoscape": "^3.2.22"
+  }
+}
